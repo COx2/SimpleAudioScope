@@ -1,6 +1,6 @@
 # SimpleAudioScope
 
-This is a example of Virtual Analog Synthesiser that implemented as minimum changes.
+This is a example of oscilloscope drawing for audio signal that implemented as minimum changes.
 
 This project is created with "Audio Plugin" template from Projucer.
 
