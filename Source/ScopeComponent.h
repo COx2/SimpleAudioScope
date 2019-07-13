@@ -263,7 +263,7 @@ private:
 	void timerCallback() override
 	{
 		audioBufferQueue.pop(sampleData.data());			// AudioBufferQueueオブジェクトからサンプルデータの配列を取り出す
-		repaint();												// paint関数を実行するフラグを立てる
+		repaint();											// paint関数を実行するフラグを立てる
 	}
 
 	// ⑥サンプルデータの配列コンテナから折れ線グラフとして波形をプロットする。
@@ -290,9 +290,9 @@ private:
 		{
 			// juce::jmap関数によってサンプルデータ配列の要素数と矩形領域内のX座標とをマッピングし、要素ごとのX座標を算出する。
 			const float x1 = jmap(SampleType(i - 1), SampleType(0), SampleType(numSamples - 1), SampleType(right - w), SampleType(right));
-			const float y1 = alignedCentre - gain * data[i - 1];
+			const float y1 = alignedCentre - gain * jmax(SampleType(-1.0), jmin(SampleType(1.0), data[i - 1] ));
 			const float x2 = jmap(SampleType(i), SampleType(0), SampleType(numSamples - 1), SampleType(right - w), SampleType(right));
-			const float y2 = alignedCentre - gain * data[i];
+			const float y2 = alignedCentre - gain * jmax(SampleType(-1.0), jmin(SampleType(1.0), data[i]));
 			const float t = 1.0f;
 			g.drawLine(x1, y1, x2, y2, t);
 		}
@@ -301,4 +301,6 @@ private:
 	// ⑦メンバ変数を宣言する。
 	Queue& audioBufferQueue;										// AudioBufferQueueクラスの参照を保持する変数
 	std::array<SampleType, Queue::bufferSize> sampleData;			// プロットするサンプルデータを格納する配列コンテナ
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ScopeComponent)
 };
