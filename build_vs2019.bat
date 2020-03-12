@@ -5,6 +5,10 @@ set PROJECT_NAME=SimpleAudioScope
 set ARCHITECTURE=x64
 set BUILD_CONFIG=Release
 
+rem Set global search paths for JUCE modules
+cd %~dp0
+.\Projucer\Projucer.exe --set-global-search-path windows defaultJuceModulePath JUCE
+
 rem Generate IDE project file(.sln) by Projucer
 cd %~dp0
 .\Projucer\Projucer.exe --resave %PROJECT_NAME%.jucer

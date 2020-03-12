@@ -9,7 +9,12 @@ jobs:
     executor:
       name: win/default
     steps:
-      - checkout      
+      - checkout
+
+      - run:
+          name: get JUCE latest
+          command: git clone https://github.com/WeAreROLI/JUCE.git
+
       - run:
           command: .\build_vs2019.bat
           shell: powershell.exe
