@@ -8,6 +8,7 @@ jobs:
   build:
     executor:
       name: win/default
+    working_directory: tmp
     steps:
       - checkout
 
