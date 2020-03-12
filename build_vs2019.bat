@@ -7,7 +7,7 @@ set BUILD_CONFIG=Release
 
 rem Set global search paths for JUCE modules
 cd %~dp0
-.\Projucer\Projucer.exe --set-global-search-path windows defaultJuceModulePath ./JUCE
+.\Projucer\Projucer.exe --set-global-search-path windows defaultJuceModulePath ./JUCE/modules
 
 rem Generate IDE project file(.sln) by Projucer
 cd %~dp0
