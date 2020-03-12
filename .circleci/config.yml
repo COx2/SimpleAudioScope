@@ -18,3 +18,6 @@ jobs:
       - run:
           command: .\build_vs2019.bat
           shell: powershell.exe
+
+      - store_artifacts:
+          path: /bin
