@@ -20,4 +20,4 @@ jobs:
           shell: powershell.exe
 
       - store_artifacts:
-          path: /bin
+          path: .\bin
