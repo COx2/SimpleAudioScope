@@ -11,5 +11,5 @@ jobs:
     steps:
       - checkout      
       - run:
-        command: build_vs2019.bat
-        shell: powershell.exe
+          command: build_vs2019.bat
+          shell: powershell.exe
